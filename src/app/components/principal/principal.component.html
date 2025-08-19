@@ -1,0 +1,48 @@
+<!-- navbar.component.html -->
+<p-menubar [model]="menuItems" >
+  <ng-template pTemplate="start">
+    <div class="navbar-logo">
+      <img src="/assets/Logo.png" class="logo-image" />
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="end">
+    <div class="navbar-end flex align-items-center gap-3">
+      
+      <div class="search-container">
+        <span class="p-input-icon-left">
+          <i class="pi pi-search"></i>
+          <input 
+            type="text" 
+            pInputText 
+            placeholder="Pesquisar..." 
+            class="search-input"
+          />
+        </span>
+      </div>
+   
+      <p-button 
+        label="Login" 
+        icon="pi pi-user" 
+        styleClass="login-button"
+        severity="secondary"
+        [outlined]="true">
+      </p-button>
+    </div>
+  </ng-template>
+</p-menubar>
+
+
+<!-- <nav class="main-navigation">
+  <ul class="nav-menu flex list-none m-0 p-0 gap-4">
+    <li *ngFor="let item of menuItems" class="nav-item">
+      <a 
+        [routerLink]="item.routerLink" 
+        routerLinkActive="active"
+        class="nav-link flex align-items-center gap-2 text-decoration-none p-2">
+        <i [class]="item.icon"></i>
+        <span>{{ item.label }}</span>
+      </a>
+    </li>
+  </ul>
+</nav> -->
