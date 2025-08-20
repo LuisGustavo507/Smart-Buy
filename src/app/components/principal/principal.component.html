@@ -1,5 +1,5 @@
-<!-- navbar.component.html -->
-<p-menubar [model]="menuItems" >
+
+<p-menubar [model]="menuItems" class="myMenuBar">
   <ng-template pTemplate="start">
     <div class="navbar-logo">
       <img src="/assets/Logo.png" class="logo-image" />
@@ -25,8 +25,7 @@
         label="Login" 
         icon="pi pi-user" 
         styleClass="login-button"
-        severity="secondary"
-        [outlined]="true">
+        [outlined]="true"> <!--outlined aplica uma classe visual ao css do botao-->
       </p-button>
     </div>
   </ng-template>

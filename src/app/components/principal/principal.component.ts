@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 
@@ -8,7 +9,6 @@ import { MenuItem } from 'primeng/api';
 })
 export class PrincipalComponent {
   menuItems: MenuItem[] | undefined;
-
     ngOnInit() {
       this.menuItems = [
             {
@@ -16,11 +16,11 @@ export class PrincipalComponent {
                 icon: 'pi pi-home'
             },
             {
-                label: 'Features',
-                icon: 'pi pi-star'
+                label: 'Contato',
+                icon: 'pi pi-phone'
             },
             {
-                label: 'Projects',
+                label: 'Categorias',
                 icon: 'pi pi-search',
                 items: [
                     {
@@ -51,10 +51,6 @@ export class PrincipalComponent {
                     }
                 ]
             },
-            {
-                label: 'Contact',
-                icon: 'pi pi-envelope'
-            }
         ]
     }
 }
