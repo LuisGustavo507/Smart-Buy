@@ -10,12 +10,15 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CommonModule } from '@angular/common';
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,7 @@ import { ButtonModule } from 'primeng/button';
     ButtonModule
     
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [DynamicDialogModule], //providers, indicam que o objeto passado ali se refere a uma unica instancia do
+  bootstrap: [AppComponent]         // objeto que pode ser injetada em subclasses da classe mae.
 })
 export class AppModule { }
