@@ -10,10 +10,10 @@ import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 export class LoginFormComponent {
    constructor(
     private dialogRef: DynamicDialogRef,
-    private dialogConfig: DynamicDialogConfig
+
   ){}
 
-  closeModal(){
-    this.dialogRef.close();
-  }
+  // closeModal(){
+  //   this.dialogRef.close();
+  // }
 }

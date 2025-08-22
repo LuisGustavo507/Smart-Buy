@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
 import { LoginFormComponent } from './components/login-form/login-form.component';
-import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { DynamicDialogModule} from 'primeng/dynamicdialog';
 
 
 @NgModule({

@@ -1,7 +1,7 @@
 
 import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { DialogService, DynamicDialogRef} from 'primeng/dynamicdialog';
 import { LoginFormComponent } from '../login-form/login-form.component';
 
 @Component({
@@ -21,8 +21,9 @@ export class PrincipalComponent {
     showLoginModal(){
         this.ref = this.dialogService.open(LoginFormComponent, {
             header: 'Realizar Login',
-            width: '50%',
-            contentStyle: { 'max-height': '700px', overflow: 'auto' },
+            width: '95%',
+            contentStyle: { 'max-height': '700px', overflow: 'auto', },
+            modal: true,
         });
     }
 
