@@ -11,7 +11,11 @@ import { CommonModule } from '@angular/common';
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
 import { LoginFormComponent } from './components/login-form/login-form.component';
-import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { DynamicDialogModule} from 'primeng/dynamicdialog';
+import { CardModule } from 'primeng/card';
+import { CheckboxModule } from 'primeng/checkbox';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { PasswordModule } from 'primeng/password';
 
 
 @NgModule({
@@ -29,7 +33,11 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog';
     InputTextModule,
     CommonModule,
     MenubarModule,
-    ButtonModule
+    ButtonModule,
+    CardModule,
+    CheckboxModule,
+    RadioButtonModule,
+    PasswordModule
     
   ],
   providers: [DynamicDialogModule], //providers, indicam que o objeto passado ali se refere a uma unica instancia do

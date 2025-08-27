@@ -1,2 +1,31 @@
-<p>login-form works!</p>
+<div class="container">
+ <div class="p-inputgroup pt-3 pb-3">
+    <span class="p-inputgroup-addon">
+        <i class="pi pi-user"></i>
+    </span>
+    <input pInputText placeholder="Username" />
+</div>
+<div class="p-inputgroup">
+    <span class="p-inputgroup-addon">
+        <i class="pi pi-key"></i>
+    </span> 
+    <input type="password" pInputText placeholder="Password" />
+</div>
+<div class="p-inputgroup p-flex justify-content-end pt-3 pb-3">
+    <label>
+        <a href="">Esqueceu a Senha?</a>
+    </label>
+</div>
+<div>
+<p-button label="Logar"
+         [outlined]="true"
+         styleClass="form-button-login w-full"/> <!--outlined aplica uma classe visual ao css do botao -->    
+</div>
+<div class="p-inputgroup pt-3 pb-3">
+    <label>
+        Não possui conta? <a  routerLink="">Registrar-se</a>
+    </label>
+</div>
+
+
 
