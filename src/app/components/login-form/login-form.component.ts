@@ -7,4 +7,6 @@ import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
   styleUrls: ['./login-form.component.css'],
   providers: [DynamicDialogConfig,DynamicDialogRef]
 })
+
 export class LoginFormComponent {}
+
