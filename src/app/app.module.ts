@@ -3,43 +3,32 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PrincipalComponent } from './components/principal/principal.component';
-import { BadgeModule } from 'primeng/badge';
-import { AvatarModule } from 'primeng/avatar';
-import { InputTextModule } from 'primeng/inputtext';
 import { CommonModule } from '@angular/common';
-import { MenubarModule } from 'primeng/menubar';
-import { ButtonModule } from 'primeng/button';
-import { LoginFormComponent } from './components/login-form/login-form.component';
 import { DynamicDialogModule} from 'primeng/dynamicdialog';
+import { ButtonModule } from 'primeng/button';
+import { MenubarModule } from 'primeng/menubar';
 import { CardModule } from 'primeng/card';
-import { CheckboxModule } from 'primeng/checkbox';
-import { RadioButtonModule } from 'primeng/radiobutton';
-import { PasswordModule } from 'primeng/password';
+import { InputTextModule } from 'primeng/inputtext';
+import { PrincipalComponent } from './components/principal/principal.component';
+import { LoginFormModule } from './modules/login-form.module';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PrincipalComponent,
-    LoginFormComponent
+    PrincipalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    BadgeModule,
-    AvatarModule,
-    InputTextModule,
     CommonModule,
-    MenubarModule,
-    ButtonModule,
+    LoginFormModule,
+    InputTextModule,
     CardModule,
-    CheckboxModule,
-    RadioButtonModule,
-    PasswordModule
-    
+    ButtonModule,
+    MenubarModule 
   ],
   providers: [DynamicDialogModule], //providers, indicam que o objeto passado ali se refere a uma unica instancia do
   bootstrap: [AppComponent]         // objeto que pode ser injetada em subclasses da classe mae.
