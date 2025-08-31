@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 
 @Component({
@@ -8,5 +9,21 @@ import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
   providers: [DynamicDialogConfig,DynamicDialogRef]
 })
 
-export class LoginFormComponent {}
+export class LoginFormComponent implements OnInit {
+
+  formulario!: FormGroup;
+
+  constructor(private formBuilder: FormBuilder){}
+
+  ngOnInit() {    
+    this.formulario = this.formBuilder.group({
+      nome: [null],
+      senha: [null]
+    });
+  }
+
+    onSubmit(){
+     console.log(this.formulario.value);  
+    }
+}
 
