@@ -17,7 +17,7 @@ export class PrincipalComponent {
 
     constructor(
         public dialogService: DialogService,
-        public loginFormComponent: LoginFormComponent
+        //public loginFormComponent: LoginFormComponent
     ){}
     
     showLoginModal(){
