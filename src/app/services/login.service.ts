@@ -8,13 +8,14 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
 
-  private readonly url = "localhost:8080/login";
+  private readonly url = "http://localhost:8080/login";
 
   constructor(
     private http: HttpClient
   ){ }
 
   logar(formulario: FormGroup): Observable<any>{
+    console.log(formulario.value);
    return this.http.post(this.url, formulario.value);
   }
 }

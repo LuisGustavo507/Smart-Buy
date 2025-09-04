@@ -29,10 +29,11 @@ export class LoginFormComponent implements OnInit {
 
     onSubmit(){
      console.log(this.formulario.value);
-     this.loginService.logar(this.formulario.value)
-     .subscribe(
-      (retorno) => console.log(retorno)
-     );
+     this.loginService.logar(this.formulario)
+     .subscribe({
+      error: (error) => console.log("ERRO: ",error),
+      next: (response) => console.log("RESPSOTA: ",response)
+     });
     }
 }
 
