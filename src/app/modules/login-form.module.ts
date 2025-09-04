@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { LoginFormComponent } from '../components/login-form/login-form.component';
+import { HttpClientModule } from "@angular/common/http";
 
 
 
@@ -16,7 +17,8 @@ import { LoginFormComponent } from '../components/login-form/login-form.componen
     CommonModule,
     ReactiveFormsModule,
     ButtonModule,
-    InputTextModule
+    InputTextModule,
+    HttpClientModule
   ]
 })
 export class LoginFormModule { }

@@ -1,0 +1,12 @@
+{
+  // Desativa IntelliCode
+  "editor.suggest.showIntelliCodeSuggestions": false,
+  
+  // Desativa GitHub Copilot inline
+  "github.copilot.enable": {
+    "*": false
+  },
+  
+  // Desativa Copilot Chat
+  "github.copilot.chat.enabled": false
+}

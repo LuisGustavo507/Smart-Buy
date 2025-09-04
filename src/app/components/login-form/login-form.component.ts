@@ -1,6 +1,8 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-login-form',
@@ -13,7 +15,10 @@ export class LoginFormComponent implements OnInit {
 
   formulario!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder){}
+  constructor(
+    private formBuilder: FormBuilder,
+    private loginService: LoginService
+  ){}
 
   ngOnInit() {    
     this.formulario = this.formBuilder.group({
@@ -23,7 +28,8 @@ export class LoginFormComponent implements OnInit {
   }
 
     onSubmit(){
-     console.log(this.formulario.value);  
+     console.log(this.formulario.value);
+     this.loginService.logar(this.formulario.value); 
     }
 }
 
