@@ -5,6 +5,7 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { LoginFormComponent } from '../components/login-form/login-form.component';
 import { HttpClientModule } from "@angular/common/http";
+import { ToastModule } from 'primeng/toast';
 
 
 
@@ -18,7 +19,8 @@ import { HttpClientModule } from "@angular/common/http";
     ReactiveFormsModule,
     ButtonModule,
     InputTextModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastModule
   ]
 })
 export class LoginFormModule { }
