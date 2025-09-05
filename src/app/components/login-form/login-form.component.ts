@@ -1,7 +1,8 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { Subscription } from 'rxjs';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -11,9 +12,10 @@ import { LoginService } from 'src/app/services/login.service';
   providers: [DynamicDialogConfig,DynamicDialogRef]
 })
 
-export class LoginFormComponent implements OnInit {
+export class LoginFormComponent implements OnInit, OnDestroy {
 
   formulario!: FormGroup;
+  subscription!: Subscription;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -28,12 +30,18 @@ export class LoginFormComponent implements OnInit {
   }
 
     onSubmit(){
-     console.log(this.formulario.value);
-     this.loginService.logar(this.formulario)
+
+    this.subscription = this.loginService.logar(this.formulario)
      .subscribe({
       error: (error) => console.log("ERRO: ",error),
-      next: (response) => console.log("RESPSOTA: ",response)
+      complete: () => {
+
+      }
      });
     }
+
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
+  }
 }
 

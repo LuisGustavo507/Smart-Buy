@@ -14,9 +14,9 @@ export class LoginService {
     private http: HttpClient
   ){ }
 
-  logar(formulario: FormGroup): Observable<any>{
+  logar(formulario: FormGroup): Observable<void>{
     console.log(formulario.value);
-   return this.http.post(this.url, formulario.value);
+   return this.http.post<void>(this.url, formulario.value);
   }
 }
 
