@@ -11,6 +11,10 @@ npm install primeflex@3.3.1
 npm install @angular/animations@16
 npm install primeicons@6.0.1
 
+# 5 Instalar pacote de de alertas SweerAlert2
+npm install sweetalert2
+
+# Definições no angular.json
 "styles": [
   "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
   "node_modules/primeng/resources/primeng.min.css",
