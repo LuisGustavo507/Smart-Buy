@@ -4,6 +4,7 @@ import { MenuItem } from 'primeng/api';
 import { DialogService, DynamicDialogRef} from 'primeng/dynamicdialog';
 import { LoginFormComponent } from '../login-form/login-form.component';
 
+
 @Component({
   selector: 'app-principal',
   templateUrl: './principal.component.html',
