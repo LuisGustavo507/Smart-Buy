@@ -3,21 +3,22 @@ import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { DialogService, DynamicDialogRef} from 'primeng/dynamicdialog';
 import { LoginFormComponent } from '../login-form/login-form.component';
+import { MessageService } from 'primeng/api';
 
 
 @Component({
   selector: 'app-principal',
   templateUrl: './principal.component.html',
   styleUrls: ['./principal.component.css'],
-  providers: [DialogService,DynamicDialogRef]
+  providers: [DialogService,DynamicDialogRef,MessageService]
 })
 export class PrincipalComponent {
     ref: DynamicDialogRef | any;
     menuItems: MenuItem[] | undefined;
 
-
     constructor(
         public dialogService: DialogService,
+        public messagemService: MessageService
         //public loginFormComponent: LoginFormComponent
     ){}
     
@@ -26,7 +27,26 @@ export class PrincipalComponent {
             header: 'Realizar Login',
             contentStyle: { 'max-height': '700px', overflow: 'auto', }
         });
+
+        // this.ref.onShow.subscribe( () =>{
+        //     this.ref.instance.detalhesResposta.subscribe((details: string[]) => {
+        //             this.messagemService.add({
+        //              severity: details[0], 
+        //              summary: details[1], 
+        //              detail: details[2], 
+        //             });
+        //     })
+        // })
     }
+
+    // onDetalhesResposta(details: string[]){
+    //     console.log("recebendo o vento: ", details)
+    //     this.messagemService.add({
+    //        severity: details[0], 
+    //        summary: details[1], 
+    //        detail: details[2], 
+    //     });
+    // }
 
     ngOnInit() {
       this.menuItems = [

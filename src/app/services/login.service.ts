@@ -15,7 +15,7 @@ export class LoginService {
   ){ }
 
   logar(formulario: FormGroup): Observable<void>{
-    console.log(formulario.value);
+    //console.log(formulario.value);
    return this.http.post<void>(this.url, formulario.value);
   }
 }
