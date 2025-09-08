@@ -1,6 +1,6 @@
 
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DynamicDialogConfig } from 'primeng/dynamicdialog';
 import { LoginService } from 'src/app/services/login.service';
 
@@ -23,10 +23,11 @@ export class LoginFormComponent implements OnInit, OnDestroy {
 
   ngOnInit() {    
     this.formulario = this.formBuilder.group({
-      nome: [null],
-      senha: [null]
+      nome: ['', Validators.required],
+      senha: ['',Validators.required]
     });
   }
+
 
     onSubmit(){
     this.loginService.logar(this.formulario)

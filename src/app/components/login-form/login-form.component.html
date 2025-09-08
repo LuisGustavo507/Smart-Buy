@@ -1,5 +1,5 @@
 <!-- <p-toast></p-toast> -->
-<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()" #ngForm="ngForm">
  <div class="p-inputgroup pt-3 pb-3">
     <span class="p-inputgroup-addon">
         <i class="pi pi-user"></i>
@@ -10,7 +10,7 @@
     <span class="p-inputgroup-addon">
         <i class="pi pi-key"></i>
     </span> 
-    <input type="password" pInputText placeholder="Password" formControlName="senha"/>
+    <input type="password" pInputText placeholder="Password" required="" formControlName="senha"/>
 </div>
 <div class="p-inputgroup p-flex justify-content-end pt-3 pb-3">
     <label>
