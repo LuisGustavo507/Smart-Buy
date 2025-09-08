@@ -1,7 +1,7 @@
 
 import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { DialogService, DynamicDialogRef} from 'primeng/dynamicdialog';
+import { DialogService, DynamicDialogRef, DynamicDialogConfig} from 'primeng/dynamicdialog';
 import { LoginFormComponent } from '../login-form/login-form.component';
 import { MessageService } from 'primeng/api';
 
@@ -10,7 +10,7 @@ import { MessageService } from 'primeng/api';
   selector: 'app-principal',
   templateUrl: './principal.component.html',
   styleUrls: ['./principal.component.css'],
-  providers: [DialogService,DynamicDialogRef,MessageService]
+  providers: [DialogService,DynamicDialogRef,MessageService,DynamicDialogConfig]
 })
 export class PrincipalComponent {
     ref: DynamicDialogRef | any;
@@ -18,35 +18,25 @@ export class PrincipalComponent {
 
     constructor(
         public dialogService: DialogService,
-        public messagemService: MessageService
-        //public loginFormComponent: LoginFormComponent
+        private messagemService: MessageService
     ){}
     
     showLoginModal(){
         this.ref = this.dialogService.open(LoginFormComponent, {
             header: 'Realizar Login',
-            contentStyle: { 'max-height': '700px', overflow: 'auto', }
+            contentStyle: { 'max-height': '700px', overflow: 'auto', },
+            data: {
+                callback: (details: string[]) => {       
+                    this.show();
+                    console.log("pai recebeu: ", details);
+                }
+            }
         });
 
-        // this.ref.onShow.subscribe( () =>{
-        //     this.ref.instance.detalhesResposta.subscribe((details: string[]) => {
-        //             this.messagemService.add({
-        //              severity: details[0], 
-        //              summary: details[1], 
-        //              detail: details[2], 
-        //             });
-        //     })
-        // })
     }
-
-    // onDetalhesResposta(details: string[]){
-    //     console.log("recebendo o vento: ", details)
-    //     this.messagemService.add({
-    //        severity: details[0], 
-    //        summary: details[1], 
-    //        detail: details[2], 
-    //     });
-    // }
+        show() {
+        this.messagemService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
+    }
 
     ngOnInit() {
       this.menuItems = [
