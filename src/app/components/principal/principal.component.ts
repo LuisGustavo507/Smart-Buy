@@ -5,38 +5,35 @@ import { DialogService, DynamicDialogRef, DynamicDialogConfig} from 'primeng/dyn
 import { LoginFormComponent } from '../login-form/login-form.component';
 import { MessageService } from 'primeng/api';
 
-
 @Component({
   selector: 'app-principal',
   templateUrl: './principal.component.html',
   styleUrls: ['./principal.component.css'],
-  providers: [DialogService,DynamicDialogRef,MessageService,DynamicDialogConfig]
+  providers: [DialogService,DynamicDialogRef,DynamicDialogConfig,MessageService]
 })
 export class PrincipalComponent {
-    ref: DynamicDialogRef | any;
-    menuItems: MenuItem[] | undefined;
+    ref!: DynamicDialogRef;
+    menuItems!: MenuItem[];
 
     constructor(
         public dialogService: DialogService,
         private messagemService: MessageService
     ){}
     
+    //O parametro "data" é passado como um objeto para o component que foi chamado.
+    //Nessa caso ele passa uma função de callback que quando necessário o component/modal login irá enviar dados de volta
     showLoginModal(){
         this.ref = this.dialogService.open(LoginFormComponent, {
             header: 'Realizar Login',
             contentStyle: { 'max-height': '700px', overflow: 'auto', },
             data: {
-                callback: (details: string[]) => {       
-                    this.show();
-                    console.log("pai recebeu: ", details);
+                callback: (details: string[]) => {               
+                    this.messagemService.add({ severity: details[0], summary: details[1], detail: details[2], key: 'toast' });
                 }
             }
         });
-
     }
-        show() {
-        this.messagemService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
-    }
+        
 
     ngOnInit() {
       this.menuItems = [

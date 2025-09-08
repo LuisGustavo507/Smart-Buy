@@ -18,7 +18,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
   constructor(
     private formBuilder: FormBuilder,
     private loginService: LoginService,
-    public dynamicDialogService: DynamicDialogConfig, 
+    public configDialog: DynamicDialogConfig, 
   ){}
 
   ngOnInit() {    
@@ -32,25 +32,23 @@ export class LoginFormComponent implements OnInit, OnDestroy {
     this.loginService.logar(this.formulario)
      .subscribe({
       error: (error) => {
-
+        this.retornaDetails("error","Erro",error.message); 
       },
       complete: () => {
-
+        this.retornaDetails("success","Sucesso","Logado com sucesso!"); 
       }
-     });
-      this.retornaDetails("error","Erro","deu erro la"); 
+     });   
     }
 
+
+    //Usado para emitir pop-up no componente principal com base no que retornou do loginService.logar()
     retornaDetails(severity: string, summary: string, detail: string){
-      console.log("chegou na funcao retornadetails")
       this.details = [severity,summary,detail];
-        this.dynamicDialogService.data.callback(this.details);
-      
+      this.configDialog.data.callback(this.details);    
     }
 
   ngOnDestroy(){
-    // this.ref.close({resonse: this.response, detail: this.detail});
-    console.log("Chegou no ngOnDestroy"); 
+
   }
 }
 

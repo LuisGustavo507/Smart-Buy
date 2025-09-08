@@ -1,5 +1,5 @@
 <p-menubar [model]="menuItems" class="myMenuBar">
-  <p-toast />
+
   <ng-template pTemplate="start">
     <div class="navbar-logo">
       <img src="/assets/Logo.png" class="logo-image" />
@@ -30,19 +30,4 @@
     </div>
   </ng-template>
 </p-menubar>
-
-
-
-<!-- <nav class="main-navigation">
-  <ul class="nav-menu flex list-none m-0 p-0 gap-4">
-    <li *ngFor="let item of menuItems" class="nav-item">
-      <a 
-        [routerLink]="item.routerLink" 
-        routerLinkActive="active"
-        class="nav-link flex align-items-center gap-2 text-decoration-none p-2">
-        <i [class]="item.icon"></i>
-        <span>{{ item.label }}</span>
-      </a>
-    </li>
-  </ul>
-</nav> -->
+<p-toast key="toast" [breakpoints]="{'430px': {width: '100%', right: '0', left: '0'}}"></p-toast>
