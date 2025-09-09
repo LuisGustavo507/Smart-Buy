@@ -1,5 +1,4 @@
 <p-menubar [model]="menuItems" class="myMenuBar">
-
   <ng-template pTemplate="start">
     <div class="navbar-logo">
       <img src="/assets/Logo.png" class="logo-image" />
@@ -11,23 +10,28 @@
       <div class="search-container">
         <span class="p-input-icon-left">
           <i class="pi pi-search"></i>
-          <input 
-            type="text" 
-            pInputText 
-            placeholder="Pesquisar..." 
+          <input
+            type="text"
+            pInputText
+            placeholder="Pesquisar..."
             class="search-input"
           />
         </span>
       </div>
-      
-      <p-button 
-        label="Login" 
-        icon="pi pi-user" 
+
+      <p-button
+        label="Login"
+        icon="pi pi-user"
         styleClass="login-button"
         (onClick)="showLoginModal()"
-        [outlined]="true"> <!--outlined aplica uma classe visual ao css do botao-->
+        [outlined]="true"
+      >
+        <!--outlined aplica uma classe visual ao css do botao-->
       </p-button>
     </div>
   </ng-template>
 </p-menubar>
-<p-toast key="toast" [breakpoints]="{'430px': {width: '100%', right: '0', left: '0'}}"></p-toast>
+<p-toast
+  key="toast"
+  [breakpoints]="{ '430px': { width: '100%', right: '0', left: '0' } }"
+></p-toast>
