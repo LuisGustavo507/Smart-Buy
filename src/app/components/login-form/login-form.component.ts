@@ -1,6 +1,6 @@
 
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnDestroy, OnInit} from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { DynamicDialogConfig } from 'primeng/dynamicdialog';
 import { LoginService } from 'src/app/services/login.service';
 
@@ -21,13 +21,13 @@ export class LoginFormComponent implements OnInit, OnDestroy {
     public configDialog: DynamicDialogConfig, 
   ){}
 
+  //Existem validator sincronos e assincronos é importante saber diferencia-los e saber quando usar cada um
   ngOnInit() {    
     this.formulario = this.formBuilder.group({
-      nome: ['', Validators.required],
-      senha: ['',Validators.required]
+      nome: ['', [Validators.required, Validators.maxLength(15), Validators.pattern(/^[^0-9\u00C0-\u017F\W]+$/)], []],
+      senha: ['',[Validators.required,Validators.maxLength(15), Validators.pattern(/^[^\u00C0-\u017F\W]+$/)], []]
     });
   }
-
 
     onSubmit(){
     this.loginService.logar(this.formulario)
@@ -40,7 +40,6 @@ export class LoginFormComponent implements OnInit, OnDestroy {
       }
      });   
     }
-
 
     //Usado para emitir pop-up no componente principal com base no que retornou do loginService.logar()
     retornaDetails(severity: string, summary: string, detail: string){

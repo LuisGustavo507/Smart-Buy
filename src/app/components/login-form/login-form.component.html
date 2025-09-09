@@ -1,16 +1,24 @@
 <!-- <p-toast></p-toast> -->
-<form [formGroup]="formulario" (ngSubmit)="onSubmit()" #ngForm="ngForm">
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
  <div class="p-inputgroup pt-3 pb-3">
     <span class="p-inputgroup-addon">
         <i class="pi pi-user"></i>
     </span> 
     <input pInputText placeholder="Username" formControlName="nome"/>
+
+        <!-- <span *ngIf="formulario.get('nome')?.errors?.['pattern']">
+            validar regex 
+        </span> -->
+ 
 </div>
 <div class="p-inputgroup">
     <span class="p-inputgroup-addon">
         <i class="pi pi-key"></i>
     </span> 
     <input type="password" pInputText placeholder="Password" required="" formControlName="senha"/>
+    <!-- <span *ngIf="formulario.get('senha')?.errors?.['pattern']">
+            validar regex 
+  </span> -->
 </div>
 <div class="p-inputgroup p-flex justify-content-end pt-3 pb-3">
     <label>
