@@ -20,7 +20,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
     private formBuilder: FormBuilder,
     private loginService: LoginService,
     public configDialog: DynamicDialogConfig
-  ) {}
+  ) { }
 
   //Existem validator sincronos e assincronos é importante saber diferencia-los e saber quando usar cada um
   ngOnInit() {
@@ -39,7 +39,6 @@ export class LoginFormComponent implements OnInit, OnDestroy {
         [
           Validators.required,
           Validators.maxLength(15),
-          Validators.pattern(/^[^\u00C0-\u017F\W]+$/),
         ],
         [],
       ],
@@ -50,6 +49,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
     this.loginService.logar(this.formulario).subscribe({
       error: (error) => {
         this.retornaDetails('error', 'Erro', error.message);
+        this.formulario.reset();
       },
       complete: () => {
         this.retornaDetails('success', 'Sucesso', 'Logado com sucesso!');
@@ -63,5 +63,5 @@ export class LoginFormComponent implements OnInit, OnDestroy {
     this.configDialog.data.callback(this.details);
   }
 
-  ngOnDestroy() {}
+  ngOnDestroy() { }
 }

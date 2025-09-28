@@ -1,42 +1,48 @@
 <!-- <p-toast></p-toast> -->
 <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-  <div class="p-inputgroup pt-3 pb-3">
-    <span class="p-inputgroup-addon">
-      <i class="pi pi-user"></i>
-    </span>
-    <input pInputText placeholder="Username" formControlName="nome" />
+  <div class="container pt-3 pb-4">
+    <div class=" p-inputgroup">
+      <span class="p-inputgroup-addon">
+        <i class="pi pi-user"></i>
+      </span>
+      <input pInputText placeholder="Username" formControlName="nome" />
+    </div>
+    <small class="pl-6" *ngIf="formulario.get('nome')?.errors?.['pattern']" style="color: red;">
+      Somente caracteres alfabéticos! <br>
+    </small>
+    <small class="pl-6" *ngIf="formulario.get('nome')?.errors?.['maxlength']" style="color: red;">
+      Maxímo de 15 caracteres!
+    </small>
+    <small class="pl-6" *ngIf="formulario.get('nome')?.touched && formulario.get('nome')?.value == ''"
+      style="color: red;">
+      Campo deve ser preenchido!
+    </small>
+  </div>
 
-    <!-- <span *ngIf="formulario.get('nome')?.errors?.['pattern']">
-            validar regex 
-        </span> -->
+  <div class="container">
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon">
+        <i class="pi pi-key"></i>
+      </span>
+      <input type="password" pInputText placeholder="Password" required="" formControlName="senha" />
+    </div>
+    <small class="pl-6" *ngIf="formulario.get('senha')?.errors?.['maxlength']" style="color: red;">
+      Maxímo de 15 caracteres!
+    </small>
+    <small class="pl-6" *ngIf="formulario.get('senha')?.touched && formulario.get('senha')?.value == ''"
+      style="color: red;">
+      Campo deve ser preenchido!
+    </small>
   </div>
-  <div class="p-inputgroup">
-    <span class="p-inputgroup-addon">
-      <i class="pi pi-key"></i>
-    </span>
-    <input
-      type="password"
-      pInputText
-      placeholder="Password"
-      required=""
-      formControlName="senha"
-    />
-    <!-- <span *ngIf="formulario.get('senha')?.errors?.['pattern']">
-            validar regex 
-  </span> -->
-  </div>
+
   <div class="p-inputgroup p-flex justify-content-end pt-3 pb-3">
     <label>
       <a href="">Esqueceu a Senha?</a>
     </label>
   </div>
   <div>
-    <p-button
-      label="Logar"
-      [outlined]="true"
-      styleClass="form-button-login w-full"
-      type="ngSubmit"
-    />
+    <p-button label="Logar" [outlined]="true" styleClass="form-button-login w-full" type="ngSubmit"
+      [disabled]="formulario.get('nome')?.invalid || formulario.get('senha')?.invalid" />
     <!--outlined aplica uma classe visual ao css do botao -->
   </div>
   <div class="p-inputgroup pt-3 pb-3">
