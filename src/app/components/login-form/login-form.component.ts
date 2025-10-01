@@ -4,7 +4,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { DynamicDialogConfig } from 'primeng/dynamicdialog';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -19,7 +19,8 @@ export class LoginFormComponent implements OnInit, OnDestroy {
   constructor(
     private formBuilder: FormBuilder,
     private loginService: LoginService,
-    public configDialog: DynamicDialogConfig
+    public configDialog: DynamicDialogConfig,
+    public ref: DynamicDialogRef
   ) { }
 
   //Existem validator sincronos e assincronos é importante saber diferencia-los e saber quando usar cada um
@@ -49,10 +50,12 @@ export class LoginFormComponent implements OnInit, OnDestroy {
     this.loginService.logar(this.formulario).subscribe({
       error: (error) => {
         this.retornaDetails('error', 'Erro', error.message);
-        this.formulario.reset();
+        console.log(error.message);
+        //this.formulario.reset();
       },
       complete: () => {
         this.retornaDetails('success', 'Sucesso', 'Logado com sucesso!');
+        this.ref.close();
       },
     });
   }
