@@ -5,6 +5,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { TokenResponse } from 'src/app/environment/token.interface';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -47,11 +48,13 @@ export class LoginFormComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    this.loginService.logar(this.formulario).subscribe({
+    this.loginService.logar(this.formulario).subscribe( {
       error: (error) => {
         this.retornaDetails('error', 'Erro', error.message);
         console.log(error.message);
-        //this.formulario.reset();
+      },
+      next: (response: TokenResponse) =>{
+        localStorage.setItem("token", response.token);
       },
       complete: () => {
         this.retornaDetails('success', 'Sucesso', 'Logado com sucesso!');

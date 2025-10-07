@@ -22,6 +22,7 @@ import { MessageService } from 'primeng/api';
 export class PrincipalComponent {
   ref!: DynamicDialogRef;
   menuItems!: MenuItem[];
+  estaLogado: boolean = false;
 
   constructor(
     public dialogService: DialogService,
@@ -35,19 +36,26 @@ export class PrincipalComponent {
       header: 'Realizar Login',
       contentStyle: { 'max-height': '700px', overflow: 'auto' },
       data: {
-        callback: (details: string[]) => {
+        callback: (details: string[], logado: boolean) => {
           this.messagemService.add({
             severity: details[0],
             summary: details[1],
             detail: details[2],
             key: 'toast',
           });
+          if(details[2] == 'Logado com sucesso!'){this.estaLogado = true}
         },
       },
     });
   }
 
+  showPerfilModal(){}
+
   ngOnInit() {
+    if(localStorage.getItem("token")){
+        this.estaLogado = true;
+    }
+    
     this.menuItems = [
       {
         label: 'Home',

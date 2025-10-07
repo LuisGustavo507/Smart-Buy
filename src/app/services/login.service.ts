@@ -10,13 +10,15 @@ import { TokenResponse } from '../environment/token.interface';
 export class LoginService {
   private readonly url = 'http://localhost:8080/login';
   public res!: Observable<TokenResponse>;
+  private token!: TokenResponse;
   constructor(private http: HttpClient) {}
 
   logar(formulario: FormGroup): Observable<TokenResponse> {
     //, {responseType: 'text' as 'json'} caso retorne em text
-    this.res = this.http.post<TokenResponse>(this.url, formulario.value);
-    console.log(this.res);
+    const token = this.http.post<TokenResponse>(this.url, formulario.value);
+    console.log("meu toke,",token);
+    this.res = token;
     return this.res;
-    
+
   }
 }

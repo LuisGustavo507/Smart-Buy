@@ -17,16 +17,15 @@
             class="search-input"
           />
         </span>
-      </div>
+      </div>  
 
       <p-button
-        label="Login"
-        icon="pi pi-user"
+        [label]="estaLogado ? '': 'Login'"
+        [icon]="estaLogado ? 'pi pi-user': 'pi pi-arrow-circle-right'"
         styleClass="login-button"
-        (onClick)="showLoginModal()"
+        (onClick)="estaLogado ? showPerfilModal() : showLoginModal()"
         [outlined]="true"
-      >
-        <!--outlined aplica uma classe visual ao css do botao-->
+      > <!--outlined aplica uma classe visual ao css do botao-->
       </p-button>
     </div>
   </ng-template>
