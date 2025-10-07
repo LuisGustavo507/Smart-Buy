@@ -9,7 +9,7 @@
 | **Node.js** | (Recomendada: `18+`) | Ambiente de execução. |
 
 ### 1. Clonar o Repositório
-git clone
+git clone https://github.com/LuisGustavo507/Smart-Buy.git
 cd Smart-Buy
 
 ### 2. Instalar dependências
