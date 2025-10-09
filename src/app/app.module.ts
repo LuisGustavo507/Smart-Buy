@@ -11,9 +11,11 @@ import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
+import { RatingModule } from 'primeng/rating';
+
 
 @NgModule({
   declarations: [AppComponent, PrincipalComponent, LoginFormComponent],
@@ -29,6 +31,8 @@ import { ToastModule } from 'primeng/toast';
     ReactiveFormsModule,
     HttpClientModule,
     ToastModule,
+    RatingModule,
+    FormsModule
   ],
   providers: [DynamicDialogModule], //providers, indicam que o objeto passado ali se refere a uma unica instancia do
   bootstrap: [AppComponent], // objeto que pode ser injetada em subclasses da classe mae.

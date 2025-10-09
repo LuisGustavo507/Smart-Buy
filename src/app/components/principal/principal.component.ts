@@ -10,6 +10,8 @@ import { MessageService } from 'primeng/api';
 import { Produto } from 'src/app/environment/produto.interface';
 import { ProdutoService } from 'src/app/services/produto.service';
 
+
+
 @Component({
   selector: 'app-principal',
   templateUrl: './principal.component.html',
@@ -65,14 +67,12 @@ export class PrincipalComponent {
         console.log(error);
       },
       next: (response: Produto[]) => {
-        console.log('antes de entrar no forEach', response[0]);
         response.forEach((produto, indice) => {
           this.produtos[indice] = produto;
         });
       },
       complete: () =>{
         console.log('requisição completa');
-        console.log(this.produtos);
       }
     });
 
