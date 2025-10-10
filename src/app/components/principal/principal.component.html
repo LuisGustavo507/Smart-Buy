@@ -34,13 +34,36 @@
   key="toast"
   [breakpoints]="{ '430px': { width: '100%', right: '0', left: '0' } }"
 ></p-toast>
-<div class="grid pt-3 pr-6 pl-6">
+
+<div class="container">
+  <div class="produtos" *ngFor="let produto of produtos">
+    <div class="container-img">
+      <img class="img-produto" [src]="produto.imagem" alt="{{produto.titulo}}">
+    </div>
+
+    <div class="info-produto">
+      <div class="avaliacao">
+        <span>{{ produto.titulo }}</span>
+        <p-rating [(ngModel)]="produto.avaliacao.nota" [cancel]="false" [readonly]="true"></p-rating>
+        <span class="quantidade">({{ produto.avaliacao.quantidade }})</span>
+      </div>
+      <div class="preco">
+        {{ 'R$ ' + produto.preco.toFixed(2) }}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="grid pt-3 pr-6 pl-6"  >
     <p-card class="col-12 sm:col-6 md:col-3" 
             *ngFor="let produto of produtos" 
-            [header]="produto.titulo">
+            [header]="produto.titulo"
+            >
      <ng-template pTemplate="header">
-        <img [src]="produto.imagem" width="100%" height="250px">
+
     </ng-template>
+    <hr>
     <div class="pb-3">
       <span>
         {{produto.avaliacao.nota}}
@@ -51,11 +74,14 @@
       <span>
         {{'('+produto.avaliacao.quantidade+')'}}
       </span>
+      <span>
+        {{'R$ '+produto.preco.toFixed(2)}}
+      </span>
     </div>
-    <div>
-      <span>{{'R$ '+produto.preco.toFixed(2)}}</span>
-    </div>
+
     </p-card>
-</div>
+</div> -->
+
+
 
 
